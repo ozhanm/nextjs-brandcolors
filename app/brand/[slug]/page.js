@@ -1,18 +1,18 @@
 import React from 'react';
 import Sidebar from '@/components/sidebar';
 import Toolbar from '@/components/toolbar';
-import Brands from '@/components/brands';
 import Modal from '@/components/modal';
+import BrandPage from '@/components/brand-page';
 import Copied from '@/components/copied';
 
-export default function BrandColors() {
+export default function Collection({ params }) {
     return (
         <>
             <Copied />
             <Sidebar />
             <main className="contents">
-                <Toolbar />
-                <Brands />
+                <Toolbar collection={true} />
+                <BrandPage slug={params.slug} />
                 <Modal />
             </main>
         </>

@@ -1,0 +1,23 @@
+:root {
+    --maincolor1: #289ee7;
+    --maincolor2: #02183f;
+    --blackcolor: #333;
+    --graycolor: #777;
+    --softgraycolor: #ccc;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--blackcolor);
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}

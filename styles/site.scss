@@ -1,0 +1,391 @@
+.sidebar {
+    height: 100%;
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 40px;
+    border-right: 1px solid #ccc;
+    .logo {
+        width: 100%;
+        a {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            line-height: 40px;
+            color: var(--blackcolor);
+            img {
+                margin-right: 10px;
+            }
+        }
+    }
+    .description {
+        width: 100%;
+        margin: 30px 0;
+        color: var(--graycolor);
+    }
+
+    .about {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--maincolor1);
+        cursor: pointer;
+    }
+}
+
+.contents {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .toolbar {
+        width: 100%;
+        height: 50px;
+        padding: 0 20px;
+        border-top: 1px solid var(--softgraycolor);
+        border-bottom: 1px solid var(--softgraycolor);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .goback {
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.85;
+            }
+            &:before {
+                content: "";
+                width: 30px;
+                height: 30px;
+                background: url(../assests/images/goback.svg) no-repeat center;
+                background-size: 24px;
+                display: block;
+                margin-right: 5px;
+            }
+        }
+        .search {
+            flex: 1;
+            display: flex;
+            position: relative;
+            &:before {
+                content: "";
+                width: 30px;
+                height: 30px;
+                background: url(../assests/images/search.svg) no-repeat center;
+                background-size: 20px;
+                display: block;
+            }
+            input {
+                width: 100%;
+                height: 30px;
+                padding: 0 10px;
+                border: 0;
+                font-size: 15px;
+                &:focus {
+                    outline: 0;
+                    box-shadow: none;
+                }
+                &::placeholder {
+                    color: var(--graycolor);
+                }
+            }
+        }
+        .buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            &.noselected {
+                div {
+                    &:not(.allbrands) {
+                        pointer-events: none;
+                        opacity: 0.4;
+                    }
+                }
+            }
+            div {
+                width: 25px;
+                height: 30px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 18px;
+                font-size: 14px;
+                color: var(--graycolor);
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                &:not(:last-child) {
+                    margin-right: 7px;
+                }
+                &:not(.selected) {
+                    cursor: pointer;
+                    &:hover {
+                        opacity: 0.85;
+                    }
+                }
+                &.download {
+                    position: relative;
+                    background-image: url(../assests/images/download.svg);
+                    a {
+                        width: 25px;
+                        height: 30px;
+                        display: block;
+                    }
+                    select {
+                        height: 25px;
+                        position: absolute;
+                        right: 40px;
+                        top: 3px;
+                        background: #fff;
+                        width: 85px;
+                        box-shadow: none;
+                        outline: 0;
+                        border-color: #bbb;
+                    }
+                }
+                &.link {
+                    background-image: url(../assests/images/link.svg);
+                }
+                &.clear {
+                    background-image: url(../assests/images/close.svg);
+                }
+                &.selected {
+                    width: auto;
+                    margin: 0 10px;
+                    padding-right: 15px;
+                    border-right: 1px solid var(--softgraycolor);
+                    min-width: 140px;
+                    text-align: center;
+                }
+                &.allbrands {
+                    width: auto;
+                    padding-left: 25px;
+                    background-image: url(../assests/images/download.svg);
+                    background-position: left center;
+                }
+            }
+        }
+    }
+}
+
+.brands {
+    width: 100%;
+    padding: 25px;
+    .brand {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px dotted var(--softgraycolor);
+        &.selected {
+            border-color: var(--maincolor2);
+            .title {
+                font-weight: 700;
+                color: var(--maincolor2);
+            }
+            .colors {
+                span {
+                    flex: 1;
+                    text-indent: 0;
+                }
+            }
+            .meta {
+                display: flex;
+            }
+        }
+        &.detail {
+            .title {
+                width: 100%;
+                font-size: 22px;
+                font-weight: 700;
+            }
+            .colors {
+                width: 100%;
+                flex-wrap: wrap;
+                margin: 10px 0;
+                span {
+                    width: 100%;
+                    flex: 0 0 100%;
+                    text-indent: 0;
+                }
+            }
+            .meta {
+                display: flex;
+                .link {
+                    display: none;
+                }
+            }
+        }
+        .title {
+            width: 20%;
+            font-size: 18px;
+            line-height: 40px;
+            padding-right: 15px;
+            cursor: pointer;
+        }
+        .colors {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            span {
+                flex: 0 0 60px;
+                height: 40px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-indent: -99999px;
+                box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+                cursor: pointer;
+                &.text-white {
+                    color: #fff;
+                    &:before {
+                        filter: brightness(0) invert(1);
+                    }
+                }
+                &.text-black {
+                    color: #000;
+                }
+                &:hover {
+                    &:before {
+                        opacity: 1;
+                        width: 20px;
+                    }
+                }
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 24px;
+                    display: block;
+                    background: url(../assests/images/copy.svg) no-repeat center;
+                    background-size: 18px;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: all 0.2s;
+                    margin-right: 4px;
+                }
+            }
+        }
+        .meta {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 13px;
+            color: var(--graycolor);
+            gap: 25px;
+            margin-top: 15px;
+            display: none;
+            div {
+                &:first-child {
+                    font-weight: 600;
+                }
+                &.url {
+                    text-decoration: underline;
+                    &:hover {
+                        color: var(--maincolor2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.copied {
+    position: fixed;
+    left: 30px;
+    bottom: 25px;
+    color: var(--textColor);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10;
+    background: var(--bgColor);
+    box-shadow: -2px 5px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// Modal
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .modal-container {
+        width: 700px;
+        height: auto;
+        padding: 40px;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        .closebtn {
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: url(../assests/images/close.svg) #eee no-repeat center;
+            background-size: 16px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0 0 20px;
+        }
+        p {
+            font-size: 16px;
+            &:not(:last-child) {
+                margin: 0 0 15px;
+            }
+        }
+    }
+}
+
+// Skeleton
+.skeleton {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    &.stitle {
+        width: 150px;
+        height: 30px;
+    }
+    &.scolor {
+        width: 60px;
+        height: 40px;
+    }
+}
