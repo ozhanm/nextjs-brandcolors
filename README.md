@@ -1,4 +1,4 @@
-Demo: [https://nextjs-brandcolors.vercel.app/] (https://nextjs-brandcolors.vercel.app/)
+Demo: [`nextjs-brandcolors.vercel.app`](https://nextjs-brandcolors.vercel.app)
 
 ## Getting Started
 
