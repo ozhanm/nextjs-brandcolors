@@ -2,7 +2,6 @@
 const path = require('path');
 
 const nextConfig = {
-    basePath: '.',
     trailingSlash: false,
     reactStrictMode: true,
     sassOptions: {
