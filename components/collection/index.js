@@ -13,7 +13,7 @@ export default function Collection({ slug }) {
 
     useEffect(() => {
         setSelectedBrands(slugs);
-    }, []);
+    }, [slugs]);
 
     return (
         <div className="brands">

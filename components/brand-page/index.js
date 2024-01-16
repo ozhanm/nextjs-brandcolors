@@ -7,7 +7,7 @@ import Brand from '@/components/brand';
 import Loading from '@/components/brand/loadingg';
 import { notFound } from 'next/navigation';
 
-export default function BrandPage({ slug }) {
+export default function BrandDetail({ slug }) {
     const { brands, setSelectedBrands } = useContext(MainContext);
 
     useEffect(() => {

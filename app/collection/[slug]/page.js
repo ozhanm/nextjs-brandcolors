@@ -5,7 +5,7 @@ import Collection from '@/components/collection';
 import Modal from '@/components/modal';
 import Copied from '@/components/copied';
 
-export default function Collection({ params }) {
+export default function CollectionPage({ params }) {
     return (
         <>
             <Copied />
